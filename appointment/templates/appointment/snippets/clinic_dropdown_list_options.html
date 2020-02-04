@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for clinic in clinics %}
+<option value="{{ clinic.pk }}">{{ clinic.name }}</option>
+{% endfor %}

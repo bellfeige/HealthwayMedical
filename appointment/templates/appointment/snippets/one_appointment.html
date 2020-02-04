@@ -1,0 +1,41 @@
+<article class="media content-section">
+    <div class="media-body">
+        <a href="{% url 'aptmt-detail' aptmt.id %}">
+            <div class="article-metadata p-1" style="background-color:#{{aptmt.status.colour}}">
+                <small class="mr-2 text-white">{{ aptmt.appointment_number }}</small>
+            </div>
+        </a>
+        <div class="ml-2">
+            <div class="d-flex flex-column mb-2">
+                <div>
+                    <text class="font-weight-bold">Name:</text>
+                    {{ aptmt.patient }}
+                </div>
+
+            </div>
+            <div class="d-flex flex-column mb-2">
+                <div>
+                    <text class="font-weight-bold">Date & Time:</text>
+                    {{ aptmt.appointment_datetime }}
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-2">
+                <div>
+                    <text class="font-weight-bold">Speciality:</text>
+                    {{ aptmt.speciality }}
+                </div>
+
+            </div>
+            <div class="d-flex flex-column">
+                <div>
+                    <text class="font-weight-bold">Current Status:</text>
+                    <text style="color:#{{aptmt.status.colour}}">{{ aptmt.status.display }}</text>
+                </div>
+
+            </div>
+
+        </div>
+
+        <small class="text-muted float-right">Submitted Time: {{ aptmt.create_datetime|date:'d M, Y f' }}</small>
+    </div>
+</article>

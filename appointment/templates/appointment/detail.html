@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block content %}
+
+<article class="media content-section">
+
+    <div class="media-body">
+        <div class="d-flex flex-row">
+            <legend class="border-bottom mb-4 align-self-center">Appointment Detail</legend>
+            {% if user.is_staff or user.is_superuser %}
+            <a class="btn btn-secondary btn-lg mt-1 mb-1 ml-auto align-self-center" href="{% url 'aptmts-all' %}">Back
+                to List</a>
+            {% elif user.is_doctor and user.is_staff == 0 and user.is_superuser == 0 %}
+            <a class="btn btn-secondary btn-lg mt-1 mb-1 ml-auto align-self-center" href="{% url 'doc-aptmts' %}">Back
+                to List</a>
+            {% elif user.is_patient and user.is_staff == 0 and user.is_superuser == 0 %}
+            <a class="btn btn-secondary btn-lg mt-1 mb-1 ml-auto align-self-center" href="{% url 'my-aptmts' %}">Back to
+                List</a>
+            {% endif %}
+        </div>
+
+        <div class="article-metadata">
+            <div>
+                <label>Current Status: </label>
+                <label style="color:#{{object.status.colour}}">{{ object.status.display }}</label>
+                <small class="text-muted float-right">Appointment request created at:
+                    {{ object.create_datetime|date:'M d, Y f' }}</small>
+            </div>
+
+
+            {% if object.patient == user %}
+            {% if object.status.id == 1 %}
+            <div>
+                <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'aptmt-update-by-user' object.id%}">Change</a>
+                <a class="btn btn-warning btn-sm mt-1 mb-1" href="{% url 'aptmt-cancel-by-user' object.id%}">Cancel</a>
+            </div>
+            {% endif %}
+            {% elif request.user.is_doctor and request.user.is_staff is False%}
+            {% if object.status.id == 4 or object.status.id == 5 %}
+            <div>
+                <a class="btn btn-primary btn-sm mt-1 mb-1"
+                   href="{% url 'med-record-update-by-doctor' object.id%}">Update</a>
+                <a class="btn btn-success btn-sm mt-1 mb-1"
+                   href="{% url 'aptmt-complete-by-doctor' object.id%}">Complete</a>
+            </div>
+            {% endif %}
+            {% elif request.user.is_staff %}
+            <div>
+
+                <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'aptmt-update-by-admin' object.id%}">Update</a>
+
+                {% if request.user.is_superuser %}
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'aptmt-delete' object.id%}">Delete</a>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+
+
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne" data-parent="#accordionExample">
+                            Patient Profile
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                    <div class="card-body">
+                        {% include 'appointment\snippets\patient_profile.html' %}
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                                data-parent="#accordionExample">
+                            Appointment Information
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo">
+                    <div class="card-body">
+                        {% include 'appointment\snippets\aptmt_info.html' %}
+                    </div>
+                </div>
+            </div>
+
+
+            {% if request.user.is_doctor or request.user.is_staff %}
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                                data-parent="#accordionExample">
+                            Medical Records
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree">
+                    <div class="card-body">
+                        {% include 'appointment/snippets/patient_medical_record.html' %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if request.user.is_patient and object.status.id == 6 and patient_view_med_records %}
+            <div class="card">
+                <div class="card-header" id="headingThree2">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2"
+                                data-parent="#accordionExample">
+                            Medical Records
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree2" class="collapse show" aria-labelledby="headingThree2">
+                    <div class="card-body">
+                        {% include 'appointment/snippets/patient_medical_record.html' %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+</article>
+{% endblock content %}

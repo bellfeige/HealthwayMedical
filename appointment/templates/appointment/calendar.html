@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'appointment/snippets/aptmt_status_legend.html' %}
+{% include 'appointment/snippets/aptmt_view_switcher.html' %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="cal-clearfix d-flex justify-content-between">
+            <div>
+                {% if user.is_staff or user.is_superuser %}
+                <a class="btn btn-outline-info align-self-center"
+                   href="{% url 'aptmts-all-calendar' %}?{{ prev_month }}"> Previous Month </a>
+                {% elif user.is_patient %}
+                <a class="btn btn-outline-info align-self-center"
+                   href="{% url 'my-aptmts-calendar' %}?{{ prev_month }}"> Previous Month </a>
+                {% elif user.is_doctor and user.is_staff == 0 and user.is_superuser == 0 %}
+                <a class="btn btn-outline-info align-self-center"
+                   href="{% url 'doc-aptmts-calendar' %}?{{ prev_month }}"> Previous Month </a>
+                {% endif %}
+            </div>
+            <div>
+
+                {% if user.is_staff or user.is_superuser %}
+                <a class="btn btn-outline-info align-self-center" href="{% url 'aptmts-all-calendar' %}"> Current
+                    Month </a>
+                {% elif user.is_patient %}
+                <a class="btn btn-outline-info align-self-center" href="{% url 'my-aptmts-calendar' %}"> Current
+                    Month </a>
+                {% elif user.is_doctor and user.is_staff == 0 and user.is_superuser == 0 %}
+                <a class="btn btn-outline-info align-self-center" href="{% url 'doc-aptmts-calendar' %}"> Current
+                    Month </a>
+                {% endif %}
+
+            </div>
+            <div>
+                {% if user.is_staff or user.is_superuser %}
+                <a class="btn btn-outline-info align-self-center"
+                   href="{% url 'aptmts-all-calendar' %}?{{ next_month }}"> Next Month </a>
+                {% elif user.is_patient %}
+                <a class="btn btn-outline-info align-self-center"
+                   href="{% url 'my-aptmts-calendar' %}?{{ next_month }}"> Next Month </a>
+                {% elif user.is_doctor and user.is_staff == 0 and user.is_superuser == 0 %}
+                <a class="btn btn-outline-info align-self-center"
+                   href="{% url 'doc-aptmts-calendar' %}?{{ next_month }}"> Next Month </a>
+                {% endif %}
+
+            </div>
+        </div>
+        {{ calendar }}
+    </div>
+</article>
+{% endblock content %}

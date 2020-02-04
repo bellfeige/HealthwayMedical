@@ -1,0 +1,34 @@
+<article class="media content-section">
+    <div class="media-body">
+        <h5 class="align-self-center">Status Color Legends:</h5>
+        <div class="d-flex flex-row justify-content-around">
+            {% if user.is_staff or user.is_patient or user.is_doctor == 0 %}
+            <div class="align-self-center d-flex flex-row">
+                <div class="box align-self-center bg-submitted"></div>
+                <div class="align-self-center text-submitted">Submitted</div>
+            </div>
+            <div class="align-self-center d-flex flex-row">
+                <div class="box align-self-center bg-cancelled"></div>
+                <div class="align-self-center text-cancelled">Cancelled</div>&nbsp;
+            </div>
+            <div class="align-self-center d-flex flex-row">
+                <div class="box align-self-center bg-pending"></div>
+                <div class="align-self-center text-pending">Pending</div>&nbsp;
+            </div>
+
+            {% endif %}
+            <div class="align-self-center d-flex flex-row">
+                <div class="box align-self-center bg-confirmed"></div>
+                <div class="align-self-center text-confirmed">Confirmed</div>&nbsp;&nbsp;
+            </div>
+            <div class="align-self-center d-flex flex-row">
+                <div class="box align-self-center bg-re_confirmed"></div>
+                <div class="align-self-center text-re_confirmed">Reschedule Confirmed</div>&nbsp;&nbsp;
+            </div>
+            <div class="align-self-center d-flex flex-row">
+                <div class="box align-self-center bg-completed"></div>
+                <div class="align-self-center text-completed">Completed</div>&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+</article>

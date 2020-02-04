@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{{ form.media }}
+<div class="" content-section>
+    <form method="post" action="">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add Doctor Schedule</legend>
+            {{form|crispy}}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Submit</button>
+            <a class="btn btn-outline-secondary" href="{% url 'doc-schedules-all' %}">Back</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

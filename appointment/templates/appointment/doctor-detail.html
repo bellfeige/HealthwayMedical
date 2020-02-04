@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="media content-section">
+    <div class="media-body d-flex flex-row">
+        <div>
+            <img class="rounded-circle account-img" src="{{doctor.doctor_profile.avatar.url}}" alt="image">
+        </div>
+        <div class="d-flex flex-column ml-4">
+            <h2>
+                <label class="mr-2">Dr. {{ doctor.first_name }} {{ doctor.last_name }}</label>
+            </h2>
+
+            {% if doctor.doctor_profile.at_clinic %}
+            <div class="d-flex flex-column mb-4">
+                <div class="font-weight-bold">Location</div>
+                {{ doctor.doctor_profile.at_clinic.name }} branch
+            </div>
+            {% endif %}
+            <div class="d-flex flex-column mb-4">
+                <div class="font-weight-bold">Speciality</div>
+                {{ doctor.doctor_profile.speciality }}
+                {% if doctor.doctor_profile.second_speciality %}
+                , {{ doctor.doctor_profile.second_speciality }}
+                {% endif %}
+
+            </div>
+            <div class="d-flex flex-column mb-4">
+                <div class="font-weight-bold">Background</div>
+                {{ doctor.doctor_profile.background|safe }}
+            </div>
+            <div class="d-flex flex-column">
+                <div class="font-weight-bold">Education</div>
+                {{ doctor.doctor_profile.education|safe }}
+            </div>
+
+
+        </div>
+
+    </div>
+</article>
+{% endblock content %}

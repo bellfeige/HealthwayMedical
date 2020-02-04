@@ -1,0 +1,24 @@
+<div>
+    <label class="article-content">Appointment Number: {{ object.appointment.appointment_number }}</label>
+</div>
+<div>
+    <label class="article-content">Date&Time: {{ object.appointment.appointment_datetime|date:'d M, Y f' }}</label>
+</div>
+<div>
+    <label class="article-content">Speciality: {{ object.appointment.speciality }}</label>
+</div>
+<div>
+    <label class="article-content">Clinic: {{ object.appointment.clinic }}</label>
+</div>
+{% if object.appointment.preferred_doctor %}
+<div>
+    <label class="article-content">Preferred Doctor: {{ object.appointment.preferred_doctor }}</label>
+</div>
+{% endif %}
+<div>
+    <label class="article-content">Actual Doctor: {{ object.appointment.doctor }}</label>
+</div>
+<div class="article-content">
+    Self description:
+    <p>{{ object.self_description|safe }}</p>
+</div>

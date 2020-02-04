@@ -1,0 +1,109 @@
+<div class="ml-2">
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Name
+        </div>
+        <div>
+            {{ object.appointment.patient.first_name }} {{ object.appointment.patient.last_name }}
+        </div>
+
+    </div>
+
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            ID Number
+        </div>
+        <div>
+            {{ object.appointment.patient.patient_profile.id_number }}
+        </div>
+
+    </div>
+
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Nationality
+        </div>
+        <div>
+            {{ object.appointment.patient.patient_profile.nationality }}
+        </div>
+
+    </div>
+
+    <div class="article-content">
+        Nationality: {{ object.appointment.patient.patient_profile.nationality }}
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Gender
+        </div>
+        <div>
+            {% if object.appointment.patient.patient_profile.gender == 'M' %}
+            Male
+            {% elif object.appointment.patient.patient_profile.gender == 'F' %}
+            Female
+            {% elif object.appointment.patient.patient_profile.gender == 'O' %}
+            Others
+            {% endif %}
+        </div>
+
+    </div>
+
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            ate of Birth
+        </div>
+        <div>
+            {{ object.appointment.patient.patient_profile.date_of_birth|date:'d M, Y' }}
+        </div>
+
+    </div>
+
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Contact Number
+        </div>
+        <div>
+            {{ object.appointment.patient.patient_profile.contact_number }}
+        </div>
+
+    </div>
+
+    <div class="article-content">
+        Contact Number: {{ object.appointment.patient.patient_profile.contact_number }}
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Height
+        </div>
+        <div>
+            {{ object.appointment.patient.patient_profile.height }} cm
+        </div>
+
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Weight
+        </div>
+        <div>
+            {{ object.appointment.patient.patient_profile.weight }} kg
+        </div>
+
+    </div>
+
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Contact Address
+        </div>
+        <p>{{ object.appointment.patient.patient_profile.contact_address }}</p>
+
+    </div>
+
+</div>

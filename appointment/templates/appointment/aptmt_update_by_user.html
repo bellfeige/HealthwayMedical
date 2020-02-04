@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{{ form.media }}
+<div class="content-section">
+    <form method="post" id="aptmtFormUpdateByUser" data-clinics-url="{% url 'ajax-load-clinics' %}">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Appointment update</legend>
+            <label>Current Status: {{object.status.display}}</label>
+            {{form|crispy}}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+    </form>
+</div>
+<script>
+    $("#id_speciality").change(function () {
+      var url = $("#aptmtFormUpdateByUser").attr("data-clinics-url");  // get the url of the `load_clinics` view
+      var specialityId = $(this).val();  // get the selected speciality ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'speciality': specialityId       // add the speciality id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_clinic").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+
+
+
+</script>
+
+{% endblock content %}
+

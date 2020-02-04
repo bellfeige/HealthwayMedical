@@ -1,0 +1,26 @@
+<article class="media content-section">
+    <div class="media-body">
+
+        <div class="article-metadata p-1 d-flex flex-row">
+            {% if docSchedule.doctor.first_name or docSchedule.doctor.last_name %}
+            <h4 class="mr-2 p2">Dr. {{ docSchedule.doctor}}</h4>
+            {% else %}
+            <h4 class="mr-2 p2">Dr. {{ docSchedule.doctor.username }}</h4>
+            {% endif %}
+            <div class="mt-1 mb-1 ml-auto">
+                {% if user.is_staff or user.is_superuser %}
+                <a class="btn btn-secondary btn-sm p-2"
+                   href="{% url 'doc-schedule-update-by-admin' docSchedule.id %}">Change</a>
+                {% elif user.is_doctor and user.is_staff == 0 and user.is_superuser == 0 %}
+                <a class="btn btn-secondary btn-sm p-2"
+                   href="{% url 'doc-schedule-update-by-doctor' docSchedule.id %}">Change</a>
+                {% endif %}
+                <a class="btn btn-danger btn-sm p-2" href="{% url 'doc-schedule-delete' docSchedule.id %}">Delete</a>
+            </div>
+
+        </div>
+        <div class="article-content">Start time: {{ docSchedule.start_datetime |date:'d M, Y f' }}</div>
+        <div class="article-content">End time: {{ docSchedule.end_datetime |date:'d M, Y f' }}</div>
+        <p class="article-content">Remarks: {{ docSchedule.notes }}</p>
+    </div>
+</article>

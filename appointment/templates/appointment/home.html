@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div>
+    <div class="imgbox">
+        <img src="{% static 'images/home-background.jpg' %}" class="center-fit">
+        <div class="over-bg col-lg-4">
+
+            <div>
+                Caring for better life
+            </div>
+            <h1>
+                Leading the way in medical excellence
+            </h1>
+            <p>
+                Save time spent on queuing
+            </p>
+
+            {% if user.is_authenticated %}
+            <div>
+                <a class="btn btn btn-outline-info" href="{% url 'check-profile-completeness' %}">MAKE APPOINTMENT</a>
+            </div>
+
+            {% else %}
+            <div>
+                <a class="btn btn-outline-primary" href="{% url 'register' %}">GET STARTED</a>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

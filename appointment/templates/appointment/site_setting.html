@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{{ form.media }}
+<div class="" content-section>
+    <form method="post" action="">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Site settings</legend>
+            {{form|crispy}}
+            <button class="btn btn-outline-info" type="submit">Save</button>
+        </fieldset>
+    </form>
+    <br>
+
+    {% if user.is_superuser %}
+    <legend class="border-bottom mb-4">Manage clinics information</legend>
+    <div class="form-group">
+        <a class="btn btn-success" href="{% url 'clinic-create' %}">Add a new clinic</a><br>
+    </div>
+
+    <div class="accordion" id="accordionClinics">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-1">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne" data-parent="#accordionClinics">
+                        Clinic List
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                    {% for clinic in clinics %}
+                    <div>
+                        <fieldset class="form-group">
+                            <a class="btn btn-primary" href="{% url 'clinic-update' clinic.id %}">Edit</a>
+                            <a class="btn btn-danger" href="{% url 'clinic-delete' clinic.id %}">Delete</a>
+                            <a href="{% url 'clinic-detail' clinic.id %}">{{ clinic.name }}</a>
+                        </fieldset>
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    {% load flatpages %}
+    {% get_flatpages as flatpages %}
+    <legend class="border-bottom mb-4">Edit flat text pages</legend>
+    <div>
+        {% for page in flatpages|dictsort:"id" %}
+        <div>
+            <fieldset class="form-group">
+                <a class="btn btn-primary" href="{% url 'flat-text-page-update' page.id %}">Edit</a>
+                <a href="{{ page.url }}">{{ page.title }}</a>
+            </fieldset>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    {% endif %}
+
+</div>
+{% endblock content %}

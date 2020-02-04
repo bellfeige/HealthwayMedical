@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{title}}</h1>
+<div class="border-top pt-3">You have to complete profile information before making an appointment. Currently,
+    <text class="text-info">{{ profile_complete_percentage }}%</text>
+    of your profile is completed.
+</div><br/>
+<div class="">
+    <a class="text-primary" href="{% url 'profile' %}">Go to my profile page</a>
+</div>
+{% endblock content %}

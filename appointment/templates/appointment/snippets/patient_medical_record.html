@@ -1,0 +1,38 @@
+<div class="ml-2">
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Problems
+        </div>
+        <p>
+            {{ object.medical_record.problems }}
+        </p>
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Medications
+        </div>
+        <p>
+            {{ object.medical_record.medications }}
+        </p>
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Directives
+        </div>
+        <p>
+            {{ object.medical_record.directives }}
+        </p>
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Allergies and Adverse Reactions
+        </div>
+        <p>
+            {{ object.medical_record.allergies_and_adverse_reactions }}
+        </p>
+    </div>
+
+</div>

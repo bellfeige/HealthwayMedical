@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="" content-section>
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Sign Up Today!</legend>
+            {{form|crispy}}
+            {{term_form|crispy}}
+            <ul>
+                <li><a class="text-primary" href="{% url 'terms-of-services'%}" target="_blank">Terms of Services</a>
+                </li>
+                <li><a class="text-primary" href="{% url 'privacy-policy' %}" target="_blank">Privacy Policy</a></li>
+            </ul>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Sign up</button>
+        </div>
+    </form>
+
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+        </small>
+    </div>
+    <br/>
+</div>
+{% endblock content %}

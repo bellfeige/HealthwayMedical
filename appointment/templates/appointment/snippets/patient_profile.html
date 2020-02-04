@@ -1,0 +1,86 @@
+<div class="ml-2">
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Name
+        </div>
+        <div>
+            {{ object.patient.first_name }} {{ object.patient.last_name }}
+        </div>
+    </div>
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            ID Number
+        </div>
+        <div>
+            {{ object.patient.patient_profile.id_number }}
+        </div>
+    </div>
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Nationality
+        </div>
+        <div>
+            {{ object.patient.patient_profile.nationality }}
+        </div>
+    </div>
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Gender
+        </div>
+        <div>
+            {% if object.patient.patient_profile.gender == 'M' %}
+            Male
+            {% elif object.patient.patient_profile.gender == 'F' %}
+            Female
+            {% elif object.patient.patient_profile.gender == 'O' %}
+            Others
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Date of Birth
+        </div>
+        <div>
+            {{ object.patient.patient_profile.date_of_birth|date:'d M, Y' }}
+        </div>
+
+    </div>
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Contact Number
+        </div>
+        <div>
+            {{ object.patient.patient_profile.contact_number }}
+        </div>
+
+    </div>
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Height
+        </div>
+        <div>
+            {{ object.patient.patient_profile.height }} cm
+        </div>
+
+    </div>
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Weight
+        </div>
+        <div>
+            {{ object.patient.patient_profile.weight }} kg
+        </div>
+
+    </div>
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Contact Address
+        </div>
+        <p>{{ object.patient.patient_profile.contact_address }}</p>
+
+    </div>
+
+</div>

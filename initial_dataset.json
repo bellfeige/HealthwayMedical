@@ -1,0 +1,368 @@
+[
+  {
+    "model": "appointment.Status",
+    "pk": 1,
+    "fields": {
+      "status": "submitted",
+      "description": "This is status_des submitted",
+      "display": "Submitted",
+      "colour": "82888A"
+    }
+  },
+  {
+    "model": "appointment.Status",
+    "pk": 2,
+    "fields": {
+      "status": "cancelled",
+      "description": "This is status_des cancelled",
+      "display": "Cancelled",
+      "colour": "292b2c"
+    }
+  },
+  {
+    "model": "appointment.Status",
+    "pk": 3,
+    "fields": {
+      "status": "pending",
+      "description": "This is status_des pending",
+      "display": "Pending",
+      "colour": "f0ad4e"
+    }
+  },
+  {
+    "model": "appointment.Status",
+    "pk": 4,
+    "fields": {
+      "status": "confirmed",
+      "description": "This is status_des confirmed",
+      "display": "Confirmed",
+      "colour": "5cb85c"
+    }
+  },
+  {
+    "model": "appointment.Status",
+    "pk": 5,
+    "fields": {
+      "status": "reschedule_confirmed",
+      "description": "This is status_des reschedule_comfirmed",
+      "display": "Reschedule Confirmed",
+      "colour": "379337"
+    }
+  },
+  {
+    "model": "appointment.Status",
+    "pk": 6,
+    "fields": {
+      "status": "completed",
+      "description": "This is status_des completed",
+      "display": "Completed",
+      "colour": "5bc0de"
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 1,
+    "fields": {
+      "username": "sa",
+      "password": "pbkdf2_sha256$150000$vruIq89ERlut$cf05lx4EeJx+bSjeCdlcVAQ1tYidBgZSHrW97I2EABU=",
+      "is_superuser": "True",
+      "is_staff": "True",
+      "is_active": "True",
+      "is_patient": "False",
+      "is_doctor": "True"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 1,
+    "fields": {
+      "name": "Executive Health Screening"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 2,
+    "fields": {
+      "name": "Cardiology"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 3,
+    "fields": {
+      "name": "Child Development"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 4,
+    "fields": {
+      "name": "Colorectal & General Surgery"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 5,
+    "fields": {
+      "name": "Dental"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 6,
+    "fields": {
+      "name": "Ear, Nose and Throat"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 7,
+    "fields": {
+      "name": "Gatroenterology & Hepatology"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 8,
+    "fields": {
+      "name": "General Orthopaedics"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 9,
+    "fields": {
+      "name": "General Paediatric"
+    }
+  },
+  {
+    "model": "users.DoctorSpeciality",
+    "pk": 10,
+    "fields": {
+      "name": "Obsterics & Gynaecology"
+    }
+  },
+  {
+    "model": "appointment.SiteSetting",
+    "pk": 1,
+    "fields": {
+      "aptmts_per_page": "10",
+      "patient_view_med_records": "False",
+      "scope": "0",
+      "doc_schedules_per_page": "10"
+    }
+  },
+  {
+    "model": "appointment.Clinic",
+    "pk": 1,
+    "fields": {
+      "name": "Clinic Alpha"
+    }
+  },
+  {
+    "model": "appointment.Clinic",
+    "pk": 2,
+    "fields": {
+      "name": "Clinic Beta"
+    }
+  },
+  {
+    "model": "appointment.Clinic",
+    "pk": 3,
+    "fields": {
+      "name": "Clinic Camma"
+    }
+  },
+  {
+    "model": "appointment.Clinic",
+    "pk": 4,
+    "fields": {
+      "name": "Clinic Delta"
+    }
+  },
+  {
+    "model": "appointment.Clinic",
+    "pk": 5,
+    "fields": {
+      "name": "Clinic Epsilon"
+    }
+  },
+  {
+    "model": "users.Nationality",
+    "pk": 1,
+    "fields": {
+      "nationality": "American"
+    }
+  },
+  {
+    "model": "users.Nationality",
+    "pk": 2,
+    "fields": {
+      "nationality": "Singaporean"
+    }
+  },
+  {
+    "model": "users.Nationality",
+    "pk": 3,
+    "fields": {
+      "nationality": "Chinese"
+    }
+  },
+  {
+    "model": "users.Nationality",
+    "pk": 4,
+    "fields": {
+      "nationality": "Indian"
+    }
+  },
+  {
+    "model": "users.Nationality",
+    "pk": 5,
+    "fields": {
+      "nationality": "British"
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 2,
+    "fields": {
+      "username": "doc001",
+      "password": "pbkdf2_sha256$150000$vruIq89ERlut$cf05lx4EeJx+bSjeCdlcVAQ1tYidBgZSHrW97I2EABU=",
+      "is_superuser": "False",
+      "is_staff": "False",
+      "is_active": "True",
+      "is_patient": "False",
+      "is_doctor": "True",
+      "first_name": "John",
+      "last_name": "Smith",
+      "email": "jsmith@gmail.com"
+    }
+  },
+  {
+    "model": "users.doctorprofile",
+    "pk": 2,
+    "fields": {
+      "user_id": "2",
+      "at_clinic": "1",
+      "speciality_id": "1",
+      "second_speciality_id": "2"
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 3,
+    "fields": {
+      "username": "doc002",
+      "password": "pbkdf2_sha256$150000$vruIq89ERlut$cf05lx4EeJx+bSjeCdlcVAQ1tYidBgZSHrW97I2EABU=",
+      "is_superuser": "False",
+      "is_staff": "False",
+      "is_active": "True",
+      "is_patient": "False",
+      "is_doctor": "True",
+      "first_name": "David",
+      "last_name": "Walsh",
+      "email": "dw001@gmail.com"
+    }
+  },
+  {
+    "model": "users.doctorprofile",
+    "pk": 3,
+    "fields": {
+      "user_id": "3",
+      "at_clinic": "2",
+      "speciality_id": "3",
+      "second_speciality_id": "4"
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 4,
+    "fields": {
+      "username": "doc003",
+      "password": "pbkdf2_sha256$150000$vruIq89ERlut$cf05lx4EeJx+bSjeCdlcVAQ1tYidBgZSHrW97I2EABU=",
+      "is_superuser": "False",
+      "is_staff": "False",
+      "is_active": "True",
+      "is_patient": "False",
+      "is_doctor": "True",
+      "first_name": "Rebbecca",
+      "last_name": "Hughes",
+      "email": "rh@gmail.com"
+    }
+  },
+  {
+    "model": "users.doctorprofile",
+    "pk": 4,
+    "fields": {
+      "user_id": "4",
+      "at_clinic": "1",
+      "speciality_id": "5",
+      "second_speciality_id": "6"
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 5,
+    "fields": {
+      "username": "doc004",
+      "password": "pbkdf2_sha256$150000$vruIq89ERlut$cf05lx4EeJx+bSjeCdlcVAQ1tYidBgZSHrW97I2EABU=",
+      "is_superuser": "False",
+      "is_staff": "False",
+      "is_active": "True",
+      "is_patient": "False",
+      "is_doctor": "True",
+      "first_name": "Lauren",
+      "last_name": "Langdon",
+      "email": "2l@hotmail.com"
+    }
+  },
+  {
+    "model": "users.doctorprofile",
+    "pk": 5,
+    "fields": {
+      "user_id": "5",
+      "at_clinic": "3",
+      "speciality_id": "7",
+      "second_speciality_id": "8"
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 6,
+    "fields": {
+      "username": "doc005",
+      "password": "pbkdf2_sha256$150000$vruIq89ERlut$cf05lx4EeJx+bSjeCdlcVAQ1tYidBgZSHrW97I2EABU=",
+      "is_superuser": "False",
+      "is_staff": "False",
+      "is_active": "True",
+      "is_patient": "False",
+      "is_doctor": "True",
+      "first_name": "Steven",
+      "last_name": "Paige",
+      "email": "sp@hotmail.com"
+    }
+  },
+  {
+    "model": "users.doctorprofile",
+    "pk": 6,
+    "fields": {
+      "user_id": "6",
+      "at_clinic": "3",
+      "speciality_id": "9",
+      "second_speciality_id": "10"
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 7,
+    "fields": {
+      "username": "rec001",
+      "password": "pbkdf2_sha256$150000$vruIq89ERlut$cf05lx4EeJx+bSjeCdlcVAQ1tYidBgZSHrW97I2EABU=",
+      "is_superuser": "False",
+      "is_staff": "True",
+      "is_active": "True",
+      "is_patient": "False",
+      "is_doctor": "True"
+    }
+  }
+]

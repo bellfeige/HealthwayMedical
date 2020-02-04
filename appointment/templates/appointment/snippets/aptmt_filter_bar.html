@@ -1,0 +1,17 @@
+<article class="media content-section">
+    <div class="media-body">
+        <h5 class="align-self-center">Search or Filter:</h5>
+        <form action="{% url 'aptmts-all' %}" method="get">
+            <div class="d-flex flex-row">
+                <div>
+                    <form method="get">
+                        {{ form.as_p }}
+                        <button class="btn btn-sm btn-outline-secondary" type="submit">Search</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</article>

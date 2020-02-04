@@ -1,0 +1,71 @@
+<div class="ml-2">
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Appointment Number
+        </div>
+        <div>
+            {{ object.appointment_number }}
+        </div>
+    </div>
+
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Date&Time
+        </div>
+        <div>
+            {{ object.appointment_datetime|date:'d M, Y f' }}
+        </div>
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Speciality
+        </div>
+        <div>
+            {{ object.speciality }}
+        </div>
+    </div>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Location
+        </div>
+        <div>
+            {{ object.clinic }}
+        </div>
+    </div>
+
+    {% if object.preferred_doctor %}
+
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Preferred Doctor
+        </div>
+        <div>
+            {{ object.preferred_doctor }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if object.doctor %}
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Actual Doctor
+        </div>
+        <div>
+            {{ object.doctor }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if object.self_description %}
+    <div class="d-flex flex-column mb-4">
+        <div class="font-weight-bold">
+            Self Description
+        </div>
+        <p>{{ object.self_description|safe }}</p>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,50 @@
+<article class="media d-flex flex-row-reverse">
+    {% if current_view == 'cal' %}
+    <div>
+        Switch to
+        {% if user.is_staff or user.is_superuser %}
+        <a class="btn btn-warning mt-1 mb-1 ml-auto align-self-center" href="{% url 'aptmts-all' %}">List View</a>
+        {% elif user.is_patient %}
+        <a class="btn btn-warning mt-1 mb-1 ml-auto align-self-center" href="{% url 'my-aptmts' %}">List View</a>
+        {% elif user.is_doctor and user.is_staff == 0 and user.is_superuser == 0 %}
+        <a class="btn btn-warning mt-1 mb-1 ml-auto align-self-center" href="{% url 'doc-aptmts' %}">List View</a>
+        {% endif %}
+    </div>
+    {% elif current_view == 'list' %}
+    <div>
+        Switch
+        to
+
+
+        {% if user.is_staff or user.is_superuser %}
+        <a class="btn btn-warning mt-1 mb-1 ml-auto align-self-center" href="{% url 'aptmts-all-calendar' %}">Calendar
+            View</a>
+        {% elif user.is_patient %}
+        <a class="btn btn-warning mt-1 mb-1 ml-auto align-self-center" href="{% url 'my-aptmts-calendar' %}">Calendar
+            View</a>
+        {% elif user.is_doctor and user.is_staff == 0 and user.is_superuser == 0 %}
+        <a class="btn btn-warning mt-1 mb-1 ml-auto align-self-center" href="{% url 'my-aptmts-calendar' %}">Calendar
+            View</a>
+        {% endif %}
+
+    </div>
+    {% endif %}
+
+
+    <!--    <div id="viewSwitcher" class="btn-group btn-group-toggle" style="margin:10px" data-toggle="buttons">-->
+    <!--        <label class="btn btn-warning active">-->
+    <!--            <input type="radio" name="options" id="list" autocomplete="off"> List View-->
+    <!--        </label>-->
+    <!--        <label class="btn btn-warning">-->
+    <!--            <input type="radio" name="options" id="cal" autocomplete="off"> Caldenar View-->
+    <!--        </label>-->
+    <!--    </div>-->
+
+
+</article>
+<!--<script>-->
+<!--    $("#viewSwitcher :input").change(function() {-->
+<!--    console.log(this); // points to the clicked input button-->
+<!--});-->
+
+<!--</script>-->

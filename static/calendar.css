@@ -1,0 +1,80 @@
+/* Common styles */
+.cal-body {
+  font-family: "ptsans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.cal-left {
+  float: left;
+}
+
+.cal-center {
+  display: block;
+}
+
+.cal-right {
+  float: right;
+}
+
+.cal-clearfix {
+  margin: 15px;
+}
+
+.form {
+  margin: auto;
+}
+
+.form input, .form select, .form textarea {
+  border-radius: 5px;
+  border: 1px solid #17a2b8;
+  outline: none;
+  background: none;
+  padding: 5px;
+  width: 100%;
+}
+
+/* App styles */
+.title {
+  text-align: center;
+  margin: 10px;
+}
+
+.cal-calendar {
+  width: 98%;
+  margin: auto;
+  font-size: 13px;
+}
+
+.cal-calendar tr, .cal-calendar td {
+  border: 1px solid black;
+}
+
+.cal-calendar th {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.cal-calendar td {
+  width: 200px;
+  height: 160px;
+  padding: 20px 0px 0px 5px;
+}
+
+.month {
+  font-size: 25px;
+}
+
+.cal-date {
+  font-size: 16px;
+}
+
+ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
+
+.cal-event{
+    margin:1px;
+    padding:1px;
+}
+

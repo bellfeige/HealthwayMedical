@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="media content-section">
+    <div class="media-body">
+        <legend class="border-bottom mb-4">{{clinic.name}}</legend>
+        <div class="ml-2">
+            <div class="d-flex flex-column mb-2">
+                <div class="mr-2 font-weight-bold">Contact</div>
+                {{ clinic.contact_number }}
+            </div>
+            <div class="d-flex flex-column mb-2">
+                <div class="mr-2 font-weight-bold">Email</div>
+                {{ clinic.email }}
+            </div>
+
+            <div class="d-flex flex-column mb-2">
+                <div class="mr-2 font-weight-bold">Operating Time</div>
+                <div>
+                    From
+                    <text class="font-weight-bold">{{ clinic.operating_time_from|time:'H:i' }}</text>
+                    to
+                    <text class="font-weight-bold">{{ clinic.operating_time_to|time:'H:i' }}</text>
+                </div>
+
+            </div>
+            <div class="d-flex flex-column mb-2">
+                <div class="mr-2 font-weight-bold">Address</div>
+                {{ clinic.address }}
+            </div>
+
+            {% if clinic.additional_info %}
+            <div class="d-flex flex-column mb-2">
+                <div class="mr-2 font-weight-bold">Additional Information</div>
+                <p>{{ clinic.additional_info }}</p>
+            </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+</article>
+{% endblock content %}

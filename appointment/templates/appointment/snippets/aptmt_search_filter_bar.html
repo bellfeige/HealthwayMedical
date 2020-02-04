@@ -1,0 +1,42 @@
+<article class="media content-section">
+    <div class="media-body">
+        <h5 class="align-self-center">Appointments filter bar:</h5>
+        {% if user.is_staff or user.is_superuser %}
+        <form action="{% url 'aptmts-all' %}" method="get">
+            {% elif user.is_patient %}
+            <form action="{% url 'my-aptmts' %}" method="get">
+                {% elif user.is_doctor and user.is_staff == 0 and user.is_superuser == 0 %}
+                <form action="{% url 'doc-aptmts' %}" method="get">
+                    {% endif %}
+                    <div class="d-flex flex-row justify-content-around">
+
+                        <!--                    <div for="name" class="align-self-center">Name:</div>-->
+                        <!--                    <div class="align-self-center" id="name" name="Name">{{ filterset.form.name }}</div>-->
+
+                        <div class="align-self-center d-flex flex-row">
+                            <div for="status" class="align-self-center">Status:</div>
+                            <div class="align-self-center" id="status" name="Status">{{ filterset.form.status }}</div>
+                        </div>
+                        <div class="align-self-center d-flex flex-row">
+                            <div for="speciality" class="align-self-center">Speciality:</div>
+                            <div class="align-self-center" id="speciality" name="Speciality">
+                                {{ filterset.form.speciality }}
+                            </div>
+                        </div>
+                        <div class="align-self-center d-flex flex-row">
+                            <div for="date_range" class="align-self-center">Scheduled Date:</div>
+                            <div class="align-self-center" id="date_range" name="Appointment Date">
+                                {{ filterset.form.date_range }}
+                            </div>
+                        </div>
+
+                        <!-- <div for="date_range2" class="align-self-center">Appointment Date2:</div>-->
+                        <!--                    <div class="align-self-center" id="date_range2" name="Appointment Date">{{ filterset.form.date_range2 }}</div>-->
+                        <div>
+                            <button class="btn btn-sm btn-secondary" type="submit">Search</button>
+                        </div>
+
+                    </div>
+                </form>
+    </div>
+</article>
