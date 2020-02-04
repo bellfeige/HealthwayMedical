@@ -1,6 +1,6 @@
 # HealthwayMedical
 
-Online appointment system for hospital, clinic or mutiple-branch medical institution
+An online appointment system for hospital, clinic or mutiple-branch medical institution
 
 ## Dependence
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
